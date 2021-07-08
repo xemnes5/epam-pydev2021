@@ -1,0 +1,26 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.9.2
+    hooks:
+    -   id: isort
+        args: ["--profile", "black", "--check", "--settings-path=pyproject.toml"]
+
+-   repo: https://github.com/psf/black
+    rev: 21.6b0
+    hooks:
+    -   id: black
+        name: black
+        entry: black
+        language: python
+        language_version: python3
+        require_serial: true
+        args: ['--check']
+        types_or: [python, pyi]
